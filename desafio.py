@@ -14,14 +14,20 @@ def editar_contato(lista_contatos):
     indice = int(input("\nDigite o número referente ao contato que deseja alterar:\n")) - 1
     informacao_a_alterar = input("\nQual das informações a seguir você quer alterar?\nnome\ntelefone\nemail\n:")
     valor_informacao = input(f"\nO que você quer escrever no {informacao_a_alterar}:\n")
-    lista_contatos[indice][informacao_a_alterar] = valor_informacao
-    print("Contato alterado!")
+    try:
+        lista_contatos[indice][informacao_a_alterar] = valor_informacao
+        print("Contato alterado!")
+    except:
+        print("Contato ou alteração inválida!")
     return
 
 def favoritar_contato(lista_contatos):
     indice = int(input("\nDigite o número referente ao contato que você quer favoritar?:\n")) - 1
-    lista_contatos[indice]["favorito"] = True
-    print("Contato favoritado!")
+    try:
+        lista_contatos[indice]["favorito"] = True
+        print("Contato favoritado!")
+    except:
+        print("Contato inválido!")
     return
 
 def ver_contatos_favoritos(lista_contatos):
@@ -35,8 +41,11 @@ def ver_contatos_favoritos(lista_contatos):
 
 def excluir_contato(lista_contatos):
     indice = int(input("\nQual dos contatos você deseja excluir?:\n")) - 1
-    lista_contatos.pop(indice)
-    print("Contato excluido!")
+    try:
+        lista_contatos.pop(indice)
+        print("Contato excluido!")
+    except:
+        print("Contato inválido!")
     return
 
 while True:
